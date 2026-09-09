@@ -47,20 +47,20 @@ After downloading the model checkpoint, fill in your own paths below (PanTS give
 # predict
 nnUNetv2_predict_from_modelfolder -m /path/to/downloaded/hf/model/repo/ \
     -i /path/to/nnUNet_raw/Dataset003_PanTS_regions/imagesTs \
-    -o /path/to/nnUNet_output/Dataset003_PanTS_regions/nnUNet_PanTS_submission \
+    -o /path/to/nnUNet_PanTS_submission_output \
     -f all -chk checkpoint_best.pth --disable_progress_bar
 
 # evaluate
 python /path_to_this_repo/nnunetv2/custom_code/evaluate_predictions_sens_spec.py \
     /path/to/nnUNet_raw/Dataset003_PanTS_regions/labelsTs \
-    /path/to/nnUNet_output/Dataset003_PanTS_regions/nnUNet_PanTS_submission \
-    -djfile /path/to/nnUNet_output/Dataset003_PanTS_regions/nnUNet_PanTS_submission/dataset.json \
-    -pfile /path/to/nnUNet_output/Dataset003_PanTS_regions/nnUNet_PanTS_submission/plans.json \
+    /path/to/nnUNet_PanTS_submission_output \
+    -djfile /path/to/nnUNet_PanTS_submission_output/dataset.json \
+    -pfile /path/to/nnUNet_PanTS_submission_output/plans.json \
     -np 8 \
-    -o /path/to/nnUNet_output/Dataset003_PanTS_regions/nnUNet_PanTS_submission/summary_sens_spec.json
+    -o /path/to/nnUNet_PanTS_submission_output/summary_sens_spec.json
 ```
 
-`/path/to/nnUNet_output` is any folder where you want to store the prediction output.
+`/path/to/nnUNet_PanTS_submission_output` is any folder where you want to store the predictions and scores output.
 
 ## Results (PanTS official in-distribution test set)
 
